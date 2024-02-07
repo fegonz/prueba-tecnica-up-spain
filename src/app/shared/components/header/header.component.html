@@ -1,37 +1,34 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-   
-
-        
-  
-    
-      </ul>
-  
-    </div>
-  </nav><nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+    <div class="menu-container">
+      <ul class="menu-list">
+        <li>
+          <a class="nav-link" [routerLink]="['/']">Inicio</a>
+        </li>
+        <li *ngIf="isAutenticado()">
+          <a class="nav-link" [routerLink]="['/tabla']">Tablas</a>
+        </li>
+        <li  >
+          <a class="nav-link" [routerLink]="['/inicio-sesion']" *ngIf="isAutenticado() else noLogin">Cerrar sesión</a>
+          <ng-template #noLogin>
+            <a class="nav-link" [routerLink]="['/inicio-sesion']"> Iniciar sesión</a>
+
+          </ng-template>
+        </li>
+         
     
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/']">Inicio <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="irATable()" *ngIf="isAutenticado()">Tablas</a>
-          </li>
-      </ul>
-      <div class="my-2 my-lg-0" *ngIf="isAutenticado() else noLogin">
-        <a  class="nav-link" (click)="autenticarte()">Ir a cerrar Sesión</a>
-
-
-      </div>
-      <ng-template #noLogin>
         
-        <a  class="nav-link" (click)="autenticarte()">Ir a iniciar Sesión</a>
+        
+      </ul>
+    </div>
+    <div class="navegacion-responsive ">
 
-      </ng-template>
+      <div class="submenu" [routerLink]="['/']"><p class="descripcion-submenu">Home</p></div>
+      <div class="submenu" [routerLink]="['/tabla']" *ngIf="isAutenticado()"><p class="descripcion-submenu">Tablas</p></div>
+      <div class="submenu"   *ngIf="isAutenticado() else noLoginResponsive" [routerLink]="['/inicio-sesion']"><i class="bi bi-person"></i><p class="descripcion-submenu">Cerrar sesión</p></div>
+        <ng-template #noLoginResponsive>  
+      <div class="submenu" [routerLink]="['/inicio-sesion']"  > <p class="descripcion-submenu">Iniciar Sesión</p></div>
+    </ng-template>
     </div>
   </nav>

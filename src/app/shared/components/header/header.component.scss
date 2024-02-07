@@ -1,0 +1,97 @@
+@import '../../../../assets/sass/colores';
+@import './node_modules/bootstrap/scss/functions';
+@import './node_modules/bootstrap/scss/variables';
+@import './node_modules/bootstrap/scss/mixins';
+.menu-container {
+    text-align: center;
+    background-color: $grisPrincipal;
+    position: absolute;
+    z-index: 5;
+    height: 8vh;
+    width: 100%;
+    padding-top: 1rem;
+
+    
+  @include media-breakpoint-down(md){
+
+    display: none;
+
+
+  }
+    
+  }
+  
+  .menu-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu-list li {
+    display: inline-block;
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .selected a {
+    text-decoration: underline;
+  }
+
+
+
+
+
+
+
+
+
+
+.navegacion-responsive{
+  background: #fff;
+  position:fixed;
+  z-index: 300;
+  border-top: 2px solid $grisPrincipal;
+  bottom:0;
+  height: 10vh;
+  width:100%!important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0rem;
+  margin-top:10rem;
+  margin-left: 0rem;
+  left: 0rem;
+
+
+  .submenu{
+    font-size: 1rem;
+    margin:1rem;
+    color: $grisPrincipal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+    &:active{
+      color:$verdePrincipal;
+    }
+    &:hover{
+      color:$verdePrincipal;
+    }
+  }
+  .icono-verde-submenu{
+    color:$verdePrincipal;
+  }
+
+
+  @include media-breakpoint-up(md){
+
+    display: none;
+
+
+  }
+
+}
