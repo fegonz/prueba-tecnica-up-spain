@@ -1,0 +1,9 @@
+<div class="my-2 my-lg-0" *ngIf="!isAutenticado() else noLogin">
+    <button  class="btn btn-secondary" (click)="autenticarte()">Iniciar Sesión</button>
+
+
+  </div>
+  <ng-template #noLogin>
+    <button  class="btn btn-secondary" (click)="autenticarte()">Cerrar Sesión</button>
+
+  </ng-template>

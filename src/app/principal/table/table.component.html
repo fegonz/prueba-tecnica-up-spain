@@ -1,0 +1,23 @@
+<button class="btn btn-success"  (click)="incrementar()">+</button>
+<span>{{ numero }}</span>
+<button class="btn btn-danger" (click)="decrementar()">-</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of getCharacters(); index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{character.name}}</td>
+        <td>{{character.gender}}</td>
+        <td>{{character.status}}</td>
+      </tr>
+  
+
+    </tbody>
+  </table>

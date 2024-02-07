@@ -1,0 +1,44 @@
+@import './node_modules/bootstrap/scss/functions';
+@import './node_modules/bootstrap/scss/variables';
+@import './node_modules/bootstrap/scss/mixins';
+@import '../../../../../assets/sass/colores';
+
+
+.input-editar{
+
+    padding: 7px 12px;
+    background: #fff;
+    font-size: 1rem;
+    color: $verdePrincipal;
+    border: 1px solid $grisPrincipal;
+    border-radius: 50px;
+    transition: all .5s;
+    width: 100%;
+    &:focus{
+  
+        border: 1px solid $verdePrincipal;
+        outline: none;
+  
+    }
+  
+  
+  }
+  .button-verde{
+    padding: 7px 12px;
+    background: $verdePrincipal;
+    font-size: 1rem;
+    color: #fff;
+    border: 1px solid $verdePrincipal;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .5s;
+    overflow: hidden;
+    text-decoration: none;
+
+    @include media-breakpoint-down(sm){
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+}

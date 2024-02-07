@@ -1,0 +1,7 @@
+
+<div class="d-flex justify-content-start align-items-center">
+    
+    <p> <span [ngClass]="{'punto-rojo': status === 'Dead', 'punto-verde': status === 'Alive','punto-amarillo': status !== 'Dead' && status !== 'Alive'  }"></span> <span>{{status}}</span> - <span>{{species}}</span></p>
+
+</div>
+

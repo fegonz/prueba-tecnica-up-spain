@@ -1,0 +1,86 @@
+<div class="abrir-modal animacion fadeIn" >
+    <div   class="modal" tabindex="-1" role="dialog" style="display:block;">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    
+            </button>
+          </div>
+    
+          <div class="modal-body">
+            <div class="container">
+    
+                <div class="row d-flex justify-content-around">
+    
+                        <div class="col-md-12  mt-3 mb-3">
+    
+                          <h4 class="text-center">Registro usuario</h4>
+                        
+                        
+                       
+                          <form (ngSubmit)="editar()" autocomplete="off" [formGroup]="miFormulario" class="form-inline">
+                            <div class="form-group mb-3">
+    
+                              <input type="text" class="input-editar"  formControlName="name" placeholder="Name">
+                              <span class="form-text text-danger" *ngIf="campoEsValido('name')">
+                                    {{getErrorMessage('name')}}
+                             </span>
+                            </div>
+    
+                            <div class="form-group mb-3">
+                              <select id="status" class="input-editar" formControlName="status" >
+                                <option value="Dead"  [selected]="selectedStatus === 'Dead'">Dead</option>
+                                <option value="Alive"  [selected]="selectedStatus === 'Alive'">Alive</option>
+                                <option value="Unknown" [selected]="selectedStatus !== 'Dead' && selectedStatus !== 'Alive'">Unknown</option>
+                              </select>
+                              <span class="form-text text-danger" *ngIf="campoEsValido('status')">
+                                   {{getErrorMessage('status')}}
+                             </span>
+                            </div>
+                            <div class="form-group mb-3">
+                              <input type="text" class="input-editar" formControlName="species" placeholder="Species">
+                              <span class="form-text text-danger" *ngIf="campoEsValido('species')">
+                                    {{getErrorMessage('species')}}
+                              </span>
+                            </div>
+                            <div class="form-group mb-3">
+                              <input type="text" class="input-editar" formControlName="type" placeholder="Type">
+                              <span class="form-text text-danger" *ngIf="campoEsValido('type')">
+                                 {{getErrorMessage('type')}}
+                             </span>
+                            </div>
+                            <div class="form-group mb-3">
+                              <input type="text" class="input-editar" formControlName="url" placeholder="url">
+                              <span class="form-text text-danger" *ngIf="campoEsValido('url')">
+                                 {{getErrorMessage('url')}}
+                             </span>
+                            </div>
+     
+                  
+    
+    
+    
+                              <input class="button-verde m-3"  type="submit" value="Editar">
+                          </form>
+        
+    
+    
+                        </div>
+    
+    
+    
+                </div>
+    
+    
+    
+    
+    
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    

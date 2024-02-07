@@ -1,0 +1,53 @@
+<app-modal-editar *ngIf="getModalEditar()" [_character]="getCharacter()"/>
+
+
+<div class="container">
+    <div class="subcontainer-bienvenida">
+
+        <button class="btn btn-primary" (click)="llamarApi()"> LLamar API</button>
+        <h4>Puedes llamar a la API o con el button o haciendo scroll, ya que está implementado el scroll infinito</h4>
+        <h3 *ngIf="getCharacters().length<1 else existen"> No existen machanguitos</h3>
+          <ng-template #existen>
+            <div class="row">
+      
+              <div *ngFor="let character of getCharacters(); let i as index" class="col-lg-6 col-sm-12 mb-3">
+                <div class="card">
+                    <div class="row">
+                      <!-- Imagen a la izquierda -->
+                      <div class="col-md-4">
+                        <img src="{{character.image}}" class="card-img" alt="Imagen">
+                      </div>
+                      
+                      <!-- Contenido a la derecha con flex-direction-column -->
+                      <div class="col-md-8 d-flex flex-column">
+                        <div class="card-body">
+                          <!-- Títulos y texto -->
+                          <h1 class="card-title">{{character.name}}</h1>
+                          <app-alive-dead [status]="character.status" [species]="character.species"/>
+                          
+                         <div class="card-container">
+                            <p>Last known location:</p>
+                            <h6>{{character.location.name}}</h6>
+                        
+                            <p>Create at:</p>
+                            <h6>{{ character.created| customDate| date: 'medium' }}</h6>
+                             <button class="btn btn-primary" (click)="editar(i)"> Editar</button>
+                       
+
+                         </div>
+        
+                          
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </ng-template>
+    </div>
+   
+
+   
+  </div>
+
