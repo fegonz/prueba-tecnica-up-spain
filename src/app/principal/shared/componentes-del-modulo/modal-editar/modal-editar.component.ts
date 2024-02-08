@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Character } from '@entities/*';
-import { ModalServiceService, ValidatorService } from '@services/*';
+import { ModalServiceService, PersonajesAPIService, ValidatorService } from '@services/*';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -59,7 +59,7 @@ export class ModalEditarComponent implements OnChanges,OnDestroy{
  };
  
    constructor(private validatorService: ValidatorService, 
- 
+    private personajesAPIService:PersonajesAPIService,
       public modalService: ModalServiceService, private router: Router,private fb: FormBuilder,) {
  
  
@@ -116,14 +116,35 @@ export class ModalEditarComponent implements OnChanges,OnDestroy{
       this.miFormulario.markAllAsTouched();
       return;
     }else{
-      Swal.fire({
-        title: "Éxito",
-        text: "Lo has editado correctamente",
-        icon: "success"
-      });
-      this.modalService.cerrarModalEditarCharacter();
-    }
+      
+      this.subscriptionEditCharacter=this.personajesAPIService.editarCharacter(this._character).subscribe({
+       
+      error: (e) =>{
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un problema al editar",
+          icon: "error"
+        })
+      },
+      complete: () =>{
+        Swal.fire({
+          title: "Éxito",
+          text: "Has editado correctamente",
+          icon: "success"
+        })
+        this.modalService.cerrarModalEditarCharacter();
+      }
+      }
+        
+      );
+      }
 
+   
+
+     
+    
+   
+ 
    }
 
    campoEsValido( campo: string ) {
